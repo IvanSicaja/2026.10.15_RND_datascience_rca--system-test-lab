@@ -1,4 +1,5 @@
 # Temporäre Office-Dateien ignorieren
+~*
 ~$*
 $*
 *.tmp
