@@ -1,0 +1,21 @@
+# normalization formula
+
+IF { FIXED : MAX([actual_speed_rpm]) }
+   = { FIXED : MIN([actual_speed_rpm]) }
+THEN 0
+ELSE
+(
+    [actual_speed_rpm]
+    - { FIXED : MIN([actual_speed_rpm]) }
+)
+/
+(
+    { FIXED : MAX([actual_speed_rpm]) }
+    - { FIXED : MIN([actual_speed_rpm]) }
+)
+END
+
+
+# average measurement over 5 seconds
+
+INT([Time S] / 5) * 5
